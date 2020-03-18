@@ -1,0 +1,33 @@
+name: "should Create a user"
+request:
+  method: POST
+  url: /api/users
+  body: |
+    {
+      "fullName": "santosh",
+      "phone":"12345667"
+    }
+  headers:
+    Content-Type: application/json;charset=UTF-8
+  matchers:
+    body:
+    - path: "$.fullName"
+      type: by_regex
+      predefined: only_alpha_unicode
+    - path: "$.phone"
+      type: by_regex
+      predefined: number
+
+response:
+  status: 200
+  body: |
+    {
+      "id": "a4dcc112-8f6b-4232-a3e3-66dd2595d33d"
+    }
+  matchers:
+    body:
+    - path: "$.id"
+      type: by_regex
+      predefined: uuid
+  headers:
+    Content-Type: application/json;charset=UTF-8
