@@ -31,7 +31,7 @@ Or using the maven wrapper
 mvnw clean install
 ```
 
-### Running the client
+### Running the consumer
 
 The client application is a web application that uses another service for displaying an html page. 
 
@@ -40,7 +40,7 @@ This application can be started in different modes:
 * Using the stub server for simulating responses from the other service
 * Using the real server dependency
 
-#### Client with stubs
+#### Consumer with provider stubs
 
 Starting the client with stubs enabled:
 
@@ -49,7 +49,7 @@ mvn -rf contract-consumer spring-boot:run -Dspring.profiles.active=stub
 ```
 
 
-#### Client without stubs
+#### Consumer without provider stubs
 
 Now you also need to start the server application to get real responses:
 
@@ -59,7 +59,7 @@ The server application can be started by executing the following command:
 mvn -rf contract-provider spring-boot:run
 ```
 
-Starting the client using the real service:
+Starting the consumer using the real service:
 
 ```bash
 mvn -rf contract-consumer spring-boot:run
