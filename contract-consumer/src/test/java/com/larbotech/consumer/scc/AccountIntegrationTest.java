@@ -28,7 +28,7 @@ public class AccountIntegrationTest extends BaseTestClass {
     accountService
         .createAccount(new AccountCommand("HelloWorld", "123334556", "abc@test.com", "test"));
 
-    mockMvc.perform(get("/account/")
+    mockMvc.perform(get("/api/accounts")
         .contentType(MediaType.APPLICATION_JSON))
         .andExpect(status().isOk())
         .andExpect(jsonPath("$", hasSize(1)))

@@ -1,0 +1,14 @@
+server:
+  port: 8082
+bookservice:
+  ribbon:
+    eureka:
+      enabled: false
+    listOfServers: localhost:8081
+
+stubrunner:
+  idsToServiceIds:
+    contract-provider: bookservice
+  ids: com.larbotech:contract-provider:+:stubs:8081 # what stubs to load
+  stubs-mode: local
+  work-offline: true

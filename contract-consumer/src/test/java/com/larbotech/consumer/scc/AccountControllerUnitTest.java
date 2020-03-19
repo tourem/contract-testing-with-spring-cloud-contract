@@ -42,7 +42,7 @@ public class AccountControllerUnitTest {
 
     given(accountService.getAllaccounts()).willReturn(allAccounts);
 
-    mockMvc.perform(get("/account/")
+    mockMvc.perform(get("/api/accounts")
         .contentType(MediaType.APPLICATION_JSON))
         .andExpect(status().isOk())
         .andExpect(jsonPath("$", hasSize(1)))

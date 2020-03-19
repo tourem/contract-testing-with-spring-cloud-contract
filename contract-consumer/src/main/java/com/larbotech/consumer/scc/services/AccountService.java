@@ -8,10 +8,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 @Service
+@Slf4j
 public class AccountService {
 
   private AccountRepository accountRepository;
@@ -43,7 +45,14 @@ public class AccountService {
     return response;
   }
 
+  public Map<String, String> createAnonymousAccount() {
+
+    return createAccount(
+        new AccountCommand("Anonymous", "123456789", "test@Anonymous.test", "Anonymous account"));
+  }
+
   public List<Account> getAllaccounts() {
+
     return accountRepository.findAll();
   }
 

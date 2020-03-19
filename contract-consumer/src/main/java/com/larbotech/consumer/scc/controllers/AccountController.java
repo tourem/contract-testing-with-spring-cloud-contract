@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/account")
+@RequestMapping("/api/accounts")
 public class AccountController {
 
 
@@ -24,17 +24,23 @@ public class AccountController {
     this.accountService = accountService;
   }
 
-  @PostMapping("/create")
+  @PostMapping
   public Map<String, String> createAccount(@RequestBody AccountCommand accountCommand) {
 
     return accountService.createAccount(accountCommand);
 
   }
 
-  @GetMapping("/")
+  @GetMapping
   public List<Account> getAllaccounts() {
     return accountService.getAllaccounts();
   }
+
+  @GetMapping("/anonymousAccount")
+  public Map<String, String> getAnonymousAccount() {
+    return accountService.createAnonymousAccount();
+  }
+
 
   @GetMapping("/{id}")
   public Account getAccountDetails(@PathVariable String id) {
