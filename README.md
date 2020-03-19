@@ -1,4 +1,4 @@
-## Testing microservices with Spring Cloud Contract
+## Contract testing with Spring Cloud Contract
 
 This application demonstrates how to use Spring Cloud Contract for testing microservices, covering the following topics:
 
